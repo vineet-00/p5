@@ -1,0 +1,28 @@
+{
+    "tweets": [{
+        "tweet_id": 798232312697720800,
+        "in_reply_to_status_id": "",
+        "in_reply_to_user_id": "",
+        "timestamp": "2016-11-14 18:33:08 +0000",
+        "source": "<a href=\"http://twitter.com/download/iphone\" rel=\"nofollow\">Twitter for iPhone</a>",
+        "text": "RT @WhiteHouse: .@FLOTUS welcomes community leaders from across the country to talk about our progress to #EndVeteransHomelessness: https:/…",
+        "retweeted_status_id": 798230711266254800,
+        "retweeted_status_user_id": 30313925,
+        "retweeted_status_timestamp": "2016-11-14 18:26:46 +0000",
+        "expanded_urls": "http://go.wh.gov/E2NSko"
+    }, {
+        "tweet_id": 797179831200915500,
+        "in_reply_to_status_id": "",
+        "in_reply_to_user_id": "",
+        "timestamp": "2016-11-11 20:50:57 +0000",
+        "source": "<a href=\"https://about.twitter.com/products/tweetdeck\" rel=\"nofollow\">TweetDeck</a>",
+        "text": "RT @LinkedIn: This #VeteransDay, let's not only honor veterans for their past, but for all they’ve yet to achieve https://t.co/IPmbPN0RKa #…",
+        "retweeted_status_id": 797107379003215900,
+        "retweeted_status_user_id": 13058772,
+        "retweeted_status_timestamp": "2016-11-11 16:03:03 +0000",
+        "expanded_urls": "https://lnkd.in/gfGbtqu,https://lnkd.in/gfGbtqu,http://twitter.com/LinkedIn/status/797107379003215872/photo/1"
+    }, {
+        "tweet_id": 797141604347813900,
+        "in_reply_to_status_id": "",
+        "in_reply_to_user_id": "",
+        "timestamp": "2016-11-11 18:19:03 +0000",
