@@ -1,37 +1,32 @@
-class Branch{
-  
-  constructor(begin, end){
+class Branch {
+  constructor(begin, end) {
     this.begin = begin;
-    this.end = end;
+    this.end   = end;
     this.finished = false;
   }
-   
-  jitter(){
-    this.end.x += random(-1,1);
-    this.end.y += random(-1,1);
-  }
-  
-  
-  show(){
-    stroke(255);
+
+  show() {
+    stroke(controls.branchColor);
+    strokeWeight(
+      map(p5.Vector.dist(this.begin, this.end),
+          controls.minLength, 120, 1, 5, true)
+    );
     line(this.begin.x, this.begin.y, this.end.x, this.end.y);
   }
-  
-  branchA(){
-    let dir = p5.Vector.sub(this.end,this.begin);
-    dir.rotate(PI/6);
-    dir.mult(0.67);
-    let newEnd = p5.Vector.add(this.end,dir);
-    let b = new Branch(this.end, newEnd);
-    return b;
+
+  branchA() {
+    const dir = p5.Vector.sub(this.end, this.begin);
+    dir.rotate(controls.rightAngle_deg * PI / 180);
+    dir.mult(controls.lengthMultiplier);
+    const newEnd = p5.Vector.add(this.end, dir);
+    return new Branch(this.end, newEnd);
   }
-  
-  branchB(){
-    let dir = p5.Vector.sub(this.end,this.begin);
-    dir.rotate(-PI/4);
-    dir.mult(0.67);
-    let newEnd = p5.Vector.add(this.end,dir);
-    let b = new Branch(this.end, newEnd);
-    return b;
+
+  branchB() {
+    const dir = p5.Vector.sub(this.end, this.begin);
+    dir.rotate(-controls.leftAngle_deg * PI / 180);
+    dir.mult(controls.lengthMultiplier);
+    const newEnd = p5.Vector.add(this.end, dir);
+    return new Branch(this.end, newEnd);
   }
 }

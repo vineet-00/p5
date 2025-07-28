@@ -1,9 +1,13 @@
+/**
+ * Fractal Tree with Angle Control via GUI
+ */
+
 let angle = 45;
 let controlkit;
 
 const data = {
     angle: 45,
-    lengthMultiplier: 0.597, 
+    lengthMultiplier: 0.597,
     minLength: 2, 
     background: "#333333",
     branchThickness: true,
@@ -22,7 +26,7 @@ function draw() {
     strokeWeight(2);
 
     angle = radians(data.angle);
-    translate(width / 2, height); 
+    translate(width / 2, height);
 
     // Calculate safe starting length
     let initialLength = (height * 0.9) * (1 - data.lengthMultiplier);
