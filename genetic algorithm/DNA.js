@@ -24,6 +24,7 @@ class DNA{
     }
     return new DNA(newgenes);
   }
+  
   mutation(){
     for(var i=0; i< this.genes.length;i++){
       if(random(1)<0.01){
