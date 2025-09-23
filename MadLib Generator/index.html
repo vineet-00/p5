@@ -1,18 +1,30 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
+  <meta charset="utf-8" />
+  <title>MadLibs Generator</title>
   <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.2/papaparse.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/p5.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <meta charset="utf-8" />
-
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-  <script src="sketch.js"></script>
-    <h1>MadLibs</h1>
-    <p>_____________! they said ________ as they jumped into their _____________ and flew off with their __________ __________."</p>
-</body>
+  <main>
+  <h1>MadLibs Generator</h1>
 
+  <p class="explanation">
+    MadLibs is a creative word game where blanks in a story template are filled with random words to generate silly, fun stories.  
+    This project loads a word list from CSV and replaces placeholders dynamically to produce unique stories on each generation.
+  </p>
+
+  <!-- Static original template text for user reference -->
+  <p class="template-text">
+"______! ($$Exclamation$$!) they said ______ ($$Adverb$$) as they jumped into their ______ ($$Noun$$) and flew off with their ______ ($$Adjective$$) ______ ($$PluralNoun$$)."
+  </p>
+
+  <div id="madlib-output"></div>
+  <div id="button-container"></div>
+</main>
+
+  <script src="sketch.js"></script>
+</body>
 </html>

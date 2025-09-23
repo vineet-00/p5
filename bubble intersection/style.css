@@ -1,7 +1,38 @@
-html, body {
+body {
+  background: #12131a;
+  color: #d1d4e0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  align-items: center;
+  flex-direction: column;
 }
-canvas {
+
+main {
+  width: 640px;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 12px;
+}
+
+.desc {
+  font-size: 1.1em;
+  color: #a3a8c2;
+  margin-bottom: 20px;
+  max-width: 580px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#canvas-container canvas {
   display: block;
+  margin: 0 auto;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(200, 0, 130, 0.3);
+  background: radial-gradient(circle, #2a2a33, #12131a 70%);
 }

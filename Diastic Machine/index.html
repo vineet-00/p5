@@ -2,23 +2,27 @@
 <html lang="en">
   <head>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.10.0/p5.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.10.0/addons/p5.sound.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <meta charset="utf-8" />
-
+    <title>Jackson Mac Low Diastic Machine</title>
   </head>
   <body>
     <main>
+      <h1>Jackson Mac Low Diastic Machine</h1>
+      <p class="desc">
+        This project implements the Diastic Machine, a poetic method that generates phrases by selecting words from a source text matching seed letters in positions. Upload your own text file or use the default to generate custom phrases.
+      </p>
+      <p>
+        Upload text file: <input type="file" id="fileUpload" accept=".txt" />
+      </p>
+      <p>
+        Seed word:
+        <input type="text" id="seed" placeholder="Enter seed word" />
+        <button id="submit">Generate Phrase</button>
+      </p>
+      <div id="output"></div>
     </main>
-    <script src="sketch.js"></script>
     <script src="diastic.js"></script>
-    <h1>Jackson Mac Low Diastic</h1>
-    <input type="file" id="file">
-    <p>
-      seed:
-      <input type = "text" id="seed" placeholder="Enter seed word" />
-      <br />
-      <button id="submit">Generate Phrase</button>
-  </p>
+    <script src="sketch.js"></script>
   </body>
 </html>

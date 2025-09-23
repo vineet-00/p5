@@ -1,7 +1,25 @@
-html, body {
+body {
+  background-color: #1c1c29;
+  color: #d0d4e0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
+  display: flex;
+  justify-content: center;
 }
-canvas {
-  display: block;
+
+main {
+  margin-top: 40px;
+  text-align: center;
+  width: 640px;
+}
+
+h1 {
+  margin-bottom: 8px;
+}
+
+.desc {
+  font-size: 1.1em;
+  color: #a3a8c2;
+  margin-bottom: 18px;
 }

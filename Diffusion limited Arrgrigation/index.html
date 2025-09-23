@@ -2,15 +2,19 @@
 <html lang="en">
   <head>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.10.0/p5.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.10.0/addons/p5.sound.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <meta charset="utf-8" />
-
+    <title>Diffusion Limited Aggregation (DLA) Simulation</title>
   </head>
   <body>
     <main>
+      <h1>Diffusion Limited Aggregation (DLA) Simulation</h1>
+      <p class="desc">
+        Diffusion Limited Aggregation (DLA) models natural fractal growth patterns where particles randomly walk and stick together to form complex tree-like structures. This simulation displays particles originating from the edges that move randomly, sticking upon contacting the cluster, growing a branching fractal pattern.
+      </p>
+      <div id="canvas-container"></div>
     </main>
-    <script src="sketch.js"></script>
     <script src="Walker.js"></script>
+    <script src="sketch.js"></script>
   </body>
 </html>

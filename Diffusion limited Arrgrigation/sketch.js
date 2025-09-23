@@ -1,18 +1,20 @@
-var tree=[];
-var walkers=[];
-// var r=4;
-var maxWalkers=10;
-var iterations=1000;
+let tree = [];
+let walkers = [];
+const maxWalkers = 10;
+const iterations = 1000;
 let radius = 8;
-let hu = 0;
-let shrink = 0.995;
-
+const shrink = 0.995;
 
 function setup() {
-  createCanvas(400, 400);
-  tree[0] = new Walker(width/2,height/2);
+  const canvas = createCanvas(600, 400);
+  canvas.parent('canvas-container'); 
+  
+  // Initialize cluster with seed walker at canvas center
+  tree[0] = new Walker(width / 2, height / 2);
   radius *= shrink;
-  for(var i=0; i<maxWalkers;i++){
+
+  // Spawn initial free walkers from edges
+  for (let i = 0; i < maxWalkers; i++) {
     walkers[i] = new Walker();
     radius *= shrink;
   }
@@ -21,28 +23,25 @@ function setup() {
 function draw() {
   background(0);
   
-  for(var i=0; i< tree.length; i++){
-    tree[i].show();
-  }
+  // Draw cluster
+  tree.forEach(walker => walker.show());
+  // Draw free walkers
+  walkers.forEach(walker => walker.show());
   
-  for(var i=0; i< walkers.length; i++){
-    walkers[i].show();
-  }
-  
-  for(var n=0; n<iterations;n++){
-    for(var i=walkers.length-1; i>0 ; i--){
+  // Perform multiple walk steps per frame for smoother growth
+  for (let n = 0; n < iterations; n++) {
+    for (let i = walkers.length - 1; i >= 0; i--) {
       walkers[i].walk();
-      // walkers[i].show();
-    
-      if(walkers[i].checkStuck(tree)){
+      if (walkers[i].checkStuck(tree)) {
         tree.push(walkers[i]);
-        walkers.splice(i,1);
+        walkers.splice(i, 1);
       }
     }
-    // var r= walkers[walkers.length-1].r;
-    while(walkers.length < maxWalkers){
+    
+    // Spawn new walkers while radius is large
+    while (walkers.length < maxWalkers) {
       radius *= shrink;
-      if(radius > 1){
+      if (radius > 1) {
         walkers.push(new Walker());
       }
     }

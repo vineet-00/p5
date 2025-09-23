@@ -1,7 +1,53 @@
-html, body {
+body {
+  background: linear-gradient(135deg, #1c1c2b, #32345a);
+  color: #eee;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
-  padding: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: flex-start;
+  min-height: 100vh;
+  flex-direction: column;
+  align-items: center;
 }
+
+main {
+  max-width: 600px;
+  text-align: center;
+  width: 100%;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 2.5rem;
+  margin-bottom: 14px;
+  text-shadow: 0 0 10px #0009;
+}
+
+.desc {
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+  line-height: 1.5;
+  color: #ddd;
+  text-shadow: 0 0 6px #0008;
+  max-width: 550px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#canvas-container {
+  width: 500px;
+  height: 20px;
+  margin: 0 auto;
+  box-shadow: 0 0 30px #566eeb99;
+  background-color: #1e1e3f;
+  border-radius: 14px;
+}
+
 canvas {
   display: block;
+  margin: 0 auto;
+  border-radius: 14px;
+  width: 500px;      /* explicitly ensure canvas fills container */
+  height: 200px;
 }

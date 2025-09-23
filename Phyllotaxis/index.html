@@ -1,15 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.10.0/p5.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.10.0/addons/p5.sound.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <meta charset="utf-8" />
+<head>
+  <meta charset="utf-8" />
+  <title>Phyllotaxis Pattern Visualization</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.10.0/p5.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main>
+    <div class="content-wrapper">
+      <section class="description-panel">
+        <h1>Phyllotaxis Pattern</h1>
+        <p>
+          <strong>Phyllotaxis</strong> is the mathematical study of leaf arrangement in plants, revealing one of nature's most elegant patterns based on the <strong>golden angle</strong> (137.5°).
+        </p>
+        <p>
+          This visualization demonstrates how plants like sunflowers, pinecones, and succulents arrange their seeds or leaves using this optimal angle to maximize space efficiency and light exposure.
+        </p>
+        <p>
+          Each point is positioned using polar coordinates where the <strong>angle</strong> increases by the golden angle and the <strong>radius</strong> grows proportionally to the square root of the point number, creating the characteristic spiral patterns found throughout nature.
+        </p>
+        <p>
+          The colors shift dynamically based on both angle and radius, creating a mesmerizing display that combines mathematical precision with natural beauty.
+        </p>
+        <div class="controls-info">
+          <p><em>The pattern evolves continuously, revealing the underlying mathematical harmony of natural growth patterns.</em></p>
+        </div>
+      </section>
 
-  </head>
-  <body>
-    <main>
-    </main>
-    <script src="sketch.js"></script>
-  </body>
+      <div class="canvas-panel">
+        <div id="canvas-container"></div>
+      </div>
+    </div>
+  </main>
+  <script src="sketch.js"></script>
+</body>
 </html>

@@ -1,7 +1,47 @@
-html, body {
+body {
+  background: linear-gradient(180deg, #0d1117, #1a0c2e);
+  color: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
-  padding: 0;
+  padding: 20px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+main {
+  max-width: 650px;
+  width: 100%;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.4rem;
+  margin-bottom: 12px;
+  color: #ff6b9d;
+  font-weight: 700;
+  text-shadow: 0 0 20px #ff6b9d44;
+}
+
+.desc {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  margin-bottom: 24px;
+  color: #e6e6e6;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#canvas-container {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 0 40px #ff6b9d33;
+  background: #000;
+}
+
 canvas {
   display: block;
+  margin: 0 auto;
 }

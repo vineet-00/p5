@@ -1,18 +1,21 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/addons/p5.dom.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/addons/p5.sound.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="style.css">
   <meta charset="utf-8" />
-
+  <title>Dynamic Blob Visualization</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
-
 <body>
-  <script src="sketch.js"></script>
+  <main>
+    <h1>Dynamic Blob Visualization</h1>
+    <p class="desc">
+      This interactive visualization creates dynamic, colorful blobs that move fluidly across the canvas. 
+      The blobs influence each pixel's color by their distance and radius, producing a vibrant gradient mesh that continuously evolves in real-time.
+    </p>
+    <div id="canvas-container"></div>
+  </main>
   <script src="Blob.js"></script>
+  <script src="sketch.js"></script>
 </body>
-
 </html>

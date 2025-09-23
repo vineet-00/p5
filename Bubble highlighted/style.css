@@ -1,7 +1,37 @@
-html, body {
+body {
+  background: #12131a;
+  color: #ccc;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  align-items: center;
+  flex-direction: column;
 }
-canvas {
+
+main {
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 18px;
+  color: #bbb;
+}
+
+#canvas-container canvas {
   display: block;
+  margin: 0 auto;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+  background: radial-gradient(circle, #2a2a33, #12131a 70%);
+}
+
+.desc {
+  font-size: 1.1em;
+  color: #a3a8c2;
+  max-width: 520px;
+  margin: 0 auto 18px auto;
+  text-align: center;
 }

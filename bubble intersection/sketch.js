@@ -1,47 +1,46 @@
 let bubble1, bubble2;
-
+let backgroundColor;
+let targetColor;
+let currentColor;
 
 function setup() {
-  createCanvas(600, 400);
-  bubble1= new Bubble(200,200);
-  bubble2= new Bubble(300,200,100);
-  
+  const canvas = createCanvas(600, 400);
+  canvas.parent('canvas-container');
+  bubble1 = new Bubble(200, 200, 50);
+  bubble2 = new Bubble(300, 200, 100);
+
+  backgroundColor = color(18, 19, 26);
+  targetColor = backgroundColor;
+  currentColor = backgroundColor;
 }
 
 function draw() {
-  background(0);
-  
-  if(bubble1.intersect(bubble2)){
-    background(200,0,100);
+  // Change background color smoothly based on intersection
+  if (bubble1.intersect(bubble2)) {
+    targetColor = color(200, 0, 100);
+  } else {
+    targetColor = color(18, 19, 26);
   }
+  currentColor = lerpColor(currentColor, targetColor, 0.1);
+  background(currentColor);
+
   bubble1.show();
+  bubble2.x = mouseX;
+  bubble2.y = mouseY;
   bubble2.show();
-  bubble2.x=mouseX;
-  bubble2.y=mouseY;
-  
-  
 }
 
 class Bubble {
-  constructor(x, y, r=50) {
+  constructor(x, y, r = 50) {
     this.x = x;
     this.y = y;
     this.r = r;
-    this.brightness = 0;
-  }
-  
-  intersect(other){
-    let d= dist(this.x,this.y,other.x,other.y);
-    if(d<this.r+other.r){
-      return true;
-    }else{
-      return false;
-    }
+    this.brightness = 180;
   }
 
-  move() {
-    this.x = this.x + random(-2, 2);
-    this.y = this.y + random(-2, 2);
+  intersect(other) {
+    let d = dist(this.x, this.y, other.x, other.y);
+    return d < this.r + other.r;
   }
 
   show() {

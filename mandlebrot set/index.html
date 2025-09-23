@@ -2,13 +2,27 @@
 <html lang="en">
   <head>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/addons/p5.sound.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="style.css" />
     <meta charset="utf-8" />
-
+    <title>Mandelbrot Set Visualization</title>
   </head>
   <body>
     <main>
+      <h1>Mandelbrot Set Visualization</h1>
+      <p class="desc">
+        The Mandelbrot set is a famous fractal defined by iterating the function <strong>z → z² + c</strong> in the complex plane. This visualization computes which complex points remain bounded (shown in black), with colors indicating how quickly unbounded points escape to infinity, revealing intricate and infinitely detailed patterns.
+      </p>
+      <div class="controls">
+        <button id="resetBtn">Reset View</button>
+        <button id="zoomInBtn">Zoom In</button>
+        <button id="zoomOutBtn">Zoom Out</button>
+        <span>Click on canvas to recenter and zoom in!</span>
+      </div>
+      <div id="canvas-container"></div>
+      <div class="info">
+        <p>Zoom: <span id="zoomLevel">1x</span> | Center: (<span id="centerX">-0.75</span>, <span id="centerY">0</span>)</p>
+      </div>
     </main>
     <script src="sketch.js"></script>
   </body>

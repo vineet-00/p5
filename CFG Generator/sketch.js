@@ -1,96 +1,66 @@
-//  Context free grammer rules
-
-
+// CFG rules
 const rules = {
-  "S": [
+  S: [
     ["NP", "VP"],
-    ["Interj", "NP", "VP"]
+    ["Interj", "NP", "VP"],
   ],
-  "NP": [
+  NP: [
     ["Det", "N"],
     ["Det", "N", "that", "VP"],
-    ["Det", "Adj", "N"]
+    ["Det", "Adj", "N"],
   ],
-  "VP": [
+  VP: [
     ["Vtrans", "NP"],
-    ["Vintr"]
+    ["Vintr"],
   ],
-  "Interj": [
-    ["oh"],
-    ["my"],
-    ["wow"],
-    ["darn"]
-  ],
-  "Det": [
-    ["this"],
-    ["that"],
-    ["the"]
-  ],
-  "N": [
+  Interj: [["oh"], ["my"], ["wow"], ["darn"]],
+  Det: [["this"], ["that"], ["the"]],
+  N: [
     ["amoeba"],
     ["dichotomy"],
     ["seagull"],
     ["trombone"],
     ["overstaffed"],
-    ["corsage"]
+    ["corsage"],
   ],
-  "Adj": [
+  Adj: [
     ["bald"],
     ["smug"],
     ["important"],
     ["tame"],
     ["overstaffed"],
-    ["corsage"]
+    ["corsage"],
   ],
-  "Vtrans": [
-    ["computes"],
-    ["examines"],
-    ["foregrounds"],
-  ],
-  "Vintr": [
-    ["coughs"],
-    ["daydreams"],
-    ["whines"],
-  ]
+  Vtrans: [["computes"], ["examines"], ["foregrounds"]],
+  Vintr: [["coughs"], ["daydreams"], ["whines"]],
 };
-
-// const rules = {
-//   "S": [
-//     ["The", "N", "V"]
-//   ],
-//   "N": [
-//     ["cat"],
-//     ["dog"]
-//   ],
-//   "V": [
-//     ["meows"],
-//     ["barks"]
-//   ]
-// };
-
-function setupUI(){
-  button = createButton("Generate Sentence");
-  button.mousePressed(cfg);
-}
-
-function cfg(){
-  let result = generateSentence();
-  createP(result);
-}
-
-function generateSentence(){
-  return expandSymbol("S");
-}
-
-function expandSymbol(symbol){
-  if(rules[symbol]){
-    let expansion = random(rules[symbol]);
-    return expansion.map(expandSymbol).join(" "); // Recursively expand
-  }
-  return symbol; // Terminal symbol
-}
 
 function setup() {
   noCanvas();
   setupUI();
+}
+
+function setupUI() {
+  const btn = select("#generateBtn");
+  btn.mousePressed(() => {
+    const sentence = generateSentence();
+    displaySentence(sentence);
+  });
+}
+
+function generateSentence() {
+  return expandSymbol("S");
+}
+
+function expandSymbol(symbol) {
+  if (rules[symbol]) {
+    const expansion = random(rules[symbol]);
+    return expansion.map(expandSymbol).join(" ");
+  }
+  return symbol; // terminal
+}
+
+function displaySentence(sentence) {
+  const output = select("#output");
+  output.html(sentence.charAt(0).toUpperCase() + sentence.slice(1) + ".");
 }

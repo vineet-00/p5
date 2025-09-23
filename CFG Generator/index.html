@@ -2,13 +2,18 @@
 <html lang="en">
   <head>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.10.0/p5.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.10.0/addons/p5.sound.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <meta charset="utf-8" />
-
+    <title>CFG Sentence Generator</title>
   </head>
   <body>
     <main>
+      <h1>Context-Free Grammar (CFG) Sentence Generator</h1>
+      <p class="desc">
+        Context-Free Grammars (CFGs) are formal rules used in linguistics and computer science to generate the structure of sentences. This project uses a simple CFG to randomly generate unique sentences based on the defined grammar rules.
+      </p>
+      <button id="generateBtn">Generate Sentence</button>
+      <div id="output"></div>
     </main>
     <script src="sketch.js"></script>
   </body>

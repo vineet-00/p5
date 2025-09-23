@@ -1,7 +1,76 @@
-html, body {
+body {
   margin: 0;
-  padding: 0;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #f2e9e1, #c9ada7);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #444343;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  box-sizing: border-box;
 }
-canvas {
-  display: block;
+
+main {
+  max-width: 640px;
+  width: 100%;
+  text-align: center;
+  background-color: #fff9f8;
+  border-radius: 20px;
+  box-shadow: 0 0 30px #d6bab9cc;
+  padding: 30px 40px;
+}
+
+h1 {
+  font-weight: 700;
+  color: #7b3b3b;
+  font-size: 2.4rem;
+  margin-bottom: 16px;
+  text-shadow: 0 0 8px #d9b9b9cc;
+}
+
+.explanation {
+  font-size: 1rem;
+  max-width: 550px;
+  margin: 0 auto 28px auto;
+  color: #6c5b59;
+  line-height: 1.5;
+  text-align: left;
+  font-style: normal;
+}
+
+.template-text {
+  font-size: 1.15rem;
+  font-style: italic;
+  color: #8c6c6b;
+  margin-bottom: 30px;
+  white-space: pre-wrap;
+  background-color: #f4d6d5cc;
+  padding: 18px 24px;
+  border-radius: 12px;
+  box-shadow: inset 0 0 10px #e9c8c7bb;
+}
+
+#madlib-output p {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #bb6b6b;
+  margin-top: 30px;
+  text-shadow: 0 0 3px #a55a5a88;
+}
+
+button {
+  background-color: #af6e6e;
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 5px 12px #90555588;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #935757;
 }

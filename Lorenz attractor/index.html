@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/addons/p5.sound.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <meta charset="utf-8" />
-
-  </head>
-  <body>
-    <main>
-    </main>
-    <script src="sketch.js"></script>
-  </body>
+<head>
+  <meta charset="utf-8" />
+  <title>Lorenz Attractor Visualization</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main>
+    <h1>Lorenz Attractor Visualization</h1>
+    <p class="desc">
+      The Lorenz attractor is a system of differential equations that models chaotic flow, originally introduced as a simplified mathematical model for atmospheric convection.  
+      It exhibits highly sensitive dependence on initial conditions, resulting in complex, never-repeating butterfly-shaped trajectories in 3D space.  
+      This visualization plots the evolving 3D trajectory with smoothly cycling colors, allowing interactive exploration by mouse movement.
+    </p>
+    <div id="canvas-container"></div>
+  </main>
+  <script src="sketch.js"></script>
+</body>
 </html>

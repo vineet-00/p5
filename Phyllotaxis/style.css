@@ -1,7 +1,133 @@
-html, body {
+body {
   margin: 0;
   padding: 0;
+  background: linear-gradient(135deg, #f7f3e9, #e8dcc0);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #5a4a37;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+main {
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.content-wrapper {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  min-height: 80vh;
+}
+
+.description-panel {
+  flex: 1;
+  max-width: 480px;
+  padding: 32px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 20px;
+  backdrop-filter: blur(15px);
+  box-shadow: 
+    0 8px 32px rgba(139, 119, 83, 0.15),
+    0 0 60px rgba(160, 140, 95, 0.1);
+  border: 1px solid rgba(160, 140, 95, 0.2);
+}
+
+.description-panel h1 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #8b6914;
+  margin-bottom: 20px;
+  text-shadow: 0 0 15px rgba(139, 105, 20, 0.3);
+  line-height: 1.2;
+}
+
+.description-panel p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: 18px;
+  color: #6b5b47;
+}
+
+.description-panel strong {
+  color: #a0702a;
+  font-weight: 600;
+}
+
+.controls-info {
+  margin-top: 24px;
+  padding: 16px 20px;
+  background: rgba(160, 140, 95, 0.1);
+  border-radius: 12px;
+  border-left: 4px solid #d4af37;
+}
+
+.controls-info p {
+  margin: 0;
+  font-style: italic;
+  color: #8b7355;
+  font-size: 0.95rem;
+}
+
+.canvas-panel {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#canvas-container {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 
+    0 0 40px rgba(139, 119, 83, 0.2),
+    0 0 80px rgba(160, 140, 95, 0.15),
+    inset 0 0 30px rgba(255, 255, 255, 0.3);
+  background: radial-gradient(circle at center, #fef9f0 0%, #f5f0e8 100%);
+}
+
 canvas {
   display: block;
+  background: transparent !important;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .content-wrapper {
+    flex-direction: column;
+    gap: 30px;
+    text-align: center;
+  }
+  
+  .description-panel {
+    max-width: 100%;
+  }
+  
+  .description-panel h1 {
+    font-size: 2rem;
+  }
+  
+  canvas {
+    max-width: 90vw;
+    height: auto !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .description-panel {
+    padding: 24px;
+  }
+  
+  .description-panel h1 {
+    font-size: 1.8rem;
+  }
+  
+  .description-panel p {
+    font-size: 1rem;
+  }
 }

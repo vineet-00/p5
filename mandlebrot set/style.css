@@ -1,7 +1,89 @@
-html, body {
+body {
+  background: #0a0a0a;
+  color: #e0e0e0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
-  padding: 0;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  flex-direction: column;
 }
-canvas {
-  display: block;
+
+main {
+  max-width: 650px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  margin-bottom: 12px;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 1.9rem;
+}
+
+.desc {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: #bbb;
+  max-width: 520px;
+}
+
+.controls {
+  margin-bottom: 20px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.controls button {
+  background: #4a90e2;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s;
+}
+
+.controls button:hover {
+  background: #357abd;
+}
+
+.controls span {
+  font-size: 14px;
+  color: #aaa;
+  margin-left: 8px;
+}
+
+#canvas-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+#canvas-container canvas {
+  border-radius: 12px;
+  box-shadow: 0 0 40px rgba(100, 150, 255, 0.4);
+  background-color: #000;
+  cursor: crosshair;
+}
+
+.info {
+  font-size: 13px;
+  color: #888;
+}
+
+.info span {
+  color: #4a90e2;
+  font-weight: 600;
 }

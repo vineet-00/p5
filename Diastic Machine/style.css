@@ -1,7 +1,76 @@
-html, body {
+body {
+  background: #f7f9fc;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
-  padding: 0;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  color: #34435e;
 }
-canvas {
-  display: block;
+
+main {
+  width: 580px;
+  background: white;
+  padding: 30px 38px;
+  border-radius: 12px;
+  box-shadow: 0 6px 24px rgba(120, 140, 180, 0.18);
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 14px;
+  font-weight: 700;
+  color: #27354a;
+}
+
+.desc {
+  font-size: 1.1em;
+  margin-bottom: 22px;
+  line-height: 1.4;
+  color: #576675;
+}
+
+input#seed {
+  padding: 10px 14px;
+  width: 220px;
+  font-size: 1em;
+  border: 1.5px solid #c3cad9;
+  border-radius: 8px;
+  margin-right: 12px;
+  transition: border-color 0.3s;
+}
+
+input#seed:focus {
+  outline: none;
+  border-color: #4a90e2;
+}
+
+button#submit {
+  background-color: #4a90e2;
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 22px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button#submit:hover {
+  background-color: #3677c9;
+}
+
+#output {
+  margin-top: 26px;
+  font-size: 1.15em;
+  min-height: 60px;
+  color: #1f2a43;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  border: 1px solid #d4d9e5;
+  background: #f5f7fb;
+  border-radius: 12px;
+  padding: 18px 24px;
+  box-shadow: inset 0 2px 6px rgb(0 0 0 / 0.04);
 }

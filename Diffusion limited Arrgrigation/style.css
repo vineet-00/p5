@@ -1,7 +1,54 @@
-html, body {
+body {
+  background: #10131a;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
-  padding: 0;
+  padding: 40px 20px;
+  color: #cbd5e1;
+  display: flex;
+  justify-content: center;    /* horizontal centering */
+  align-items: flex-start;    /* can change to center if vertical centering needed */
+  min-height: 100vh;
+  flex-direction: column;     /* stack main vertically */
 }
-canvas {
+
+main {
+  max-width: 600px;      /* make main wider to better center content */
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;        /* add left/right auto margin for horizontal centering */
+}
+
+h1 {
+  margin-bottom: 12px;
+  color: #f8fafc;
+  font-weight: 700;
+  font-size: 1.8rem;
+}
+
+.desc {
+  font-size: 1.15em;
+  line-height: 1.5;
+  margin-bottom: 28px;
+  color: #94a3b8;
+  max-width: 600px;      /* match max-width of main for uniform layout */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#canvas-container {
+  display: flex;
+  justify-content: center;    /* center canvas horizontally */
+  margin: 0 auto 30px auto;
+  width: 600px;              /* match canvas width */
+  min-height: 400px;         /* match canvas height */
+}
+
+#canvas-container canvas {
   display: block;
+  border-radius: 14px;
+  box-shadow: 0 0 25px rgba(255, 100, 150, 0.25);
+  background-color: #090a0f;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
 }

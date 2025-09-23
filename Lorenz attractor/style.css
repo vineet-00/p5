@@ -1,7 +1,62 @@
-html, body {
+body {
   margin: 0;
-  padding: 0;
+  background: linear-gradient(135deg, #0d1117, #3a006f);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #eaeaea;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 40px 10px;
+  box-sizing: border-box;
 }
+
+main {
+  max-width: 900px;
+  width: 100%;
+  text-align: center;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1 {
+  font-weight: 700;
+  color: #ff79c6;
+  font-size: 2rem;
+  margin-bottom: 16px;
+  margin-top: 0;
+  padding-top: 0;
+  text-shadow: 0 0 12px #ff79c6bb;
+}
+
+.desc {
+  font-size: 1rem;
+  color: #ccc;
+  margin-bottom: 24px;
+  line-height: 1.5;
+  text-shadow: 0 0 8px #0008;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#canvas-container {
+  margin: 0 auto;
+  width: 800px;
+  height: 600px;
+  background-color: #090a14;
+  border-radius: 20px;
+  box-shadow:
+    0 0 20px 1px #6200a5cc,
+    inset 0 0 30px #320070bb;
+  overflow: hidden;
+}
+
 canvas {
   display: block;
+  border-radius: 20px;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
 }

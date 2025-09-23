@@ -1,7 +1,71 @@
-html, body {
+body {
+  background: #f3f7fa;
+  font-family: 'Segoe UI', Arial, sans-serif;
   margin: 0;
   padding: 0;
 }
-canvas {
-  display: block;
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+}
+
+h1 {
+  color: #2e354f;
+  margin-bottom: 24px;
+}
+
+#sentiment-container {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(40, 72, 110, 0.12);
+  padding: 32px 36px;
+  max-width: 520px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+label {
+  font-size: 1.15em;
+  color: #31416e;
+  margin-bottom: 4px;
+}
+textarea {
+  border: 1.5px solid #afbecd;
+  border-radius: 10px;
+  padding: 14px;
+  font-size: 1em;
+  margin-bottom: 18px;
+  resize: vertical;
+  background: #f8fafc;
+  transition: border 0.2s;
+}
+textarea:focus {
+  border: 2px solid #2481ff;
+  outline: none;
+}
+#output {
+  margin-top: 12px;
+  text-align: left;
+}
+#output p {
+  margin: 4px 0 4px 0;
+  font-size: 1.06em;
+  color: #425080;
+}
+
+#indicator {
+  height: 24px;
+  border-radius: 6px;
+  margin: 10px 0;
+  transition: background 0.4s;
+}
+#wordlistP {
+  font-size: 0.98em;
+  color: #6f808e;
+  word-break: break-all;
 }
