@@ -13,7 +13,7 @@ function setup() {
 }
 
 function draw() {
-  background(18, 19, 26); // dark background matching css gradient
+  background(18, 19, 26);
   for (let i = 0; i < bubbles.length; i++) {
     bubbles[i].move();
     bubbles[i].show();

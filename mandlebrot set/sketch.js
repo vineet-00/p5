@@ -1,162 +1,134 @@
-// Mandelbrot parameters
-let minReal = -2.5;
-let maxReal = 1;
-let minImag = -1.25;
-let maxImag = 1.25;
-let zoom = 1;
-let centerX = -0.75;
-let centerY = 0;
+// Mandelbrot Explorer with palettes
+let minReal = -2.5, maxReal = 1, minImag = -1.25, maxImag = 1.25;
+let zoom = 1, centerX = -0.75, centerY = 0;
+let baseMaxIterations = 500;
+
+let canvas;
+let iterRange, iterValue, paletteSelect, zoomLevelEl, centerXEl, centerYEl;
 
 function setup() {
-  const canvas = createCanvas(600, 600);
+  const side = 600;
+  canvas = createCanvas(side, side);
   canvas.parent('canvas-container');
   pixelDensity(1);
-  
-  // Set up button interactions
-  document.getElementById('resetBtn').addEventListener('click', resetView);
-  document.getElementById('zoomInBtn').addEventListener('click', () => zoomAt(centerX, centerY, 2));
-  document.getElementById('zoomOutBtn').addEventListener('click', () => zoomAt(centerX, centerY, 0.5));
-  
+
+  // UI hooks
+  document.getElementById('resetBtn').onclick = resetView;
+  document.getElementById('zoomInBtn').onclick = () => zoomAt(centerX, centerY, 2);
+  document.getElementById('zoomOutBtn').onclick = () => zoomAt(centerX, centerY, 0.5);
+
+  iterRange = document.getElementById('iterRange');
+  iterValue = document.getElementById('iterValue');
+  paletteSelect = document.getElementById('paletteSelect');
+  zoomLevelEl = document.getElementById('zoomLevel');
+  centerXEl = document.getElementById('centerX');
+  centerYEl = document.getElementById('centerY');
+
+  iterRange.oninput = () => {
+    baseMaxIterations = Number(iterRange.value);
+    iterValue.textContent = baseMaxIterations;
+    drawMandelbrot();
+  };
+  paletteSelect.onchange = drawMandelbrot;
+
+  updateInfo();
   drawMandelbrot();
 }
 
 function mousePressed() {
   if (mouseX >= 0 && mouseX < width && mouseY >= 0 && mouseY < height) {
-    // Convert mouse position to complex coordinates
-    let clickReal = map(mouseX, 0, width, minReal, maxReal);
-    let clickImag = map(mouseY, 0, height, minImag, maxImag);
-    
-    // Zoom in at clicked point
+    const clickReal = map(mouseX, 0, width, minReal, maxReal);
+    const clickImag = map(mouseY, 0, height, minImag, maxImag);
     zoomAt(clickReal, clickImag, 2);
   }
 }
 
 function zoomAt(real, imag, factor) {
-  let realRange = maxReal - minReal;
-  let imagRange = maxImag - minImag;
-  
-  // New range after zoom
-  let newRealRange = realRange / factor;
-  let newImagRange = imagRange / factor;
-  
-  // Center the new view on the clicked point
-  minReal = real - newRealRange / 2;
-  maxReal = real + newRealRange / 2;
-  minImag = imag - newImagRange / 2;
-  maxImag = imag + newImagRange / 2;
-  
+  const realRange = (maxReal - minReal) / factor;
+  const imagRange = (maxImag - minImag) / factor;
+  minReal = real - realRange/2;
+  maxReal = real + realRange/2;
+  minImag = imag - imagRange/2;
+  maxImag = imag + imagRange/2;
   centerX = real;
   centerY = imag;
   zoom *= factor;
-  
   updateInfo();
   drawMandelbrot();
 }
 
 function resetView() {
-  minReal = -2.5;
-  maxReal = 1;
-  minImag = -1.25;
-  maxImag = 1.25;
-  zoom = 1;
-  centerX = -0.75;
-  centerY = 0;
-  
+  minReal = -2.5; maxReal = 1; minImag = -1.25; maxImag = 1.25;
+  zoom = 1; centerX = -0.75; centerY = 0;
   updateInfo();
   drawMandelbrot();
 }
 
 function updateInfo() {
-  document.getElementById('zoomLevel').textContent = zoom.toFixed(1) + 'x';
-  document.getElementById('centerX').textContent = centerX.toFixed(6);
-  document.getElementById('centerY').textContent = centerY.toFixed(6);
+  zoomLevelEl.textContent = zoom.toFixed(2) + 'x';
+  centerXEl.textContent = centerX.toFixed(6);
+  centerYEl.textContent = centerY.toFixed(6);
 }
 
 function drawMandelbrot() {
   loadPixels();
-  
-  const maxIterations = Math.min(100 + Math.floor(Math.log(zoom) * 10), 500);
-  const escapeRadiusSq = 16;
+  const maxIterations = baseMaxIterations;
+  const escapeR2 = 16;
+  const palette = paletteSelect.value;
 
   for (let x = 0; x < width; x++) {
     for (let y = 0; y < height; y++) {
-      // Map pixel to current view of complex plane
-      let a = map(x, 0, width, minReal, maxReal);
-      let b = map(y, 0, height, minImag, maxImag);
+      const a0 = map(x, 0, width, minReal, maxReal);
+      const b0 = map(y, 0, height, minImag, maxImag);
+      let a = a0, b = b0, n = 0;
 
-      let ca = a;
-      let cb = b;
-
-      let n = 0;
       while (n < maxIterations) {
-        // Calculate z = z^2 + c
-        let aa = a * a - b * b;
-        let bb = 2 * a * b;
-
-        a = aa + ca;
-        b = bb + cb;
-
-        // Check escape condition
-        if ((a * a + b * b) > escapeRadiusSq) {
-          break;
-        }
+        const aa = a*a - b*b;
+        const bb = 2*a*b;
+        a = aa + a0;
+        b = bb + b0;
+        if (a*a + b*b > escapeR2) break;
         n++;
       }
 
-      let pix = (x + y * width) * 4;
-      
+      const pix = (x + y * width) * 4;
       if (n === maxIterations) {
-        // Points in the Mandelbrot set - black
-        pixels[pix + 0] = 0;
-        pixels[pix + 1] = 0;
-        pixels[pix + 2] = 0;
+        pixels[pix+0] = 0; pixels[pix+1] = 0; pixels[pix+2] = 0; pixels[pix+3] = 255;
       } else {
-        // Escaped points - colorful based on iteration count
-        let hue = map(n, 0, maxIterations, 240, 0); // Blue to red
-        let saturation = 0.8;
-        let brightness = map(n, 0, maxIterations, 0.3, 1);
-        
-        let c = HSVtoRGB(hue, saturation, brightness);
-        pixels[pix + 0] = c.r;
-        pixels[pix + 1] = c.g;
-        pixels[pix + 2] = c.b;
+        const t = n / maxIterations;
+        let col = {r:0,g:0,b:0};
+        if (palette === 'fire') col = firePalette(t);
+        else if (palette === 'ocean') col = oceanPalette(t);
+        else if (palette === 'mono') col = monoPalette(t);
+        else col = classicPalette(t);
+        pixels[pix] = col.r; pixels[pix+1] = col.g; pixels[pix+2] = col.b; pixels[pix+3] = 255;
       }
-      pixels[pix + 3] = 255;
     }
   }
-
   updatePixels();
 }
 
-// Helper function to convert HSV to RGB
-function HSVtoRGB(h, s, v) {
-  let r, g, b;
-  let i = Math.floor(h / 60);
-  let f = h / 60 - i;
-  let p = v * (1 - s);
-  let q = v * (1 - s * f);
-  let t = v * (1 - s * (1 - f));
-  
-  switch (i % 6) {
-    case 0: r = v, g = t, b = p; break;
-    case 1: r = q, g = v, b = p; break;
-    case 2: r = p, g = v, b = t; break;
-    case 3: r = p, g = q, b = v; break;
-    case 4: r = t, g = p, b = v; break;
-    case 5: r = v, g = p, b = q; break;
-  }
-  
+/* Color palettes */
+function classicPalette(t) {
+  // violet → red → gold
+  if (t < 0.5) return lerpRGB({r:70,g:0,b:90},{r:200,g:20,b:40},t/0.5);
+  return lerpRGB({r:200,g:20,b:40},{r:255,g:220,b:50},(t-0.5)/0.5);
+}
+function firePalette(t) {
+  if (t < 0.5) return lerpRGB({r:50,g:0,b:0},{r:255,g:80,b:0},t/0.5);
+  return lerpRGB({r:255,g:80,b:0},{r:255,g:230,b:180},(t-0.5)/0.5);
+}
+function oceanPalette(t) {
+  if (t < 0.5) return lerpRGB({r:0,g:10,b:40},{r:0,g:140,b:200},t/0.5);
+  return lerpRGB({r:0,g:140,b:200},{r:200,g:255,b:255},(t-0.5)/0.5);
+}
+function monoPalette(t) {
+  return lerpRGB({r:20,g:20,b:20},{r:240,g:240,b:240},t);
+}
+function lerpRGB(c1,c2,t) {
   return {
-    r: Math.round(r * 255),
-    g: Math.round(g * 255),
-    b: Math.round(b * 255)
+    r: Math.round(c1.r+(c2.r-c1.r)*t),
+    g: Math.round(c1.g+(c2.g-c1.g)*t),
+    b: Math.round(c1.b+(c2.b-c1.b)*t)
   };
 }
-
-// Initialize info display
-function draw() {
-  // Static render - no continuous drawing needed
-}
-
-// Initialize the display
-updateInfo();

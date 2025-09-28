@@ -5,11 +5,47 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.3/addons/p5.sound.min.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
     <meta charset="utf-8" />
-
+    <title>Classic Snake Game</title>
   </head>
   <body>
-    <main>
-    </main>
+    <div class="container">
+      <div class="left-panel">
+        <h1>Classic Snake Game</h1>
+        <p class="description">
+          Navigate the snake using arrow keys to collect food and grow longer.
+          Avoid hitting your own tail! A timeless arcade classic with simple controls and endless fun.
+        </p>
+        
+        <div class="game-stats">
+          <div class="score-display">
+            <span id="score">Score: 0</span>
+          </div>
+        </div>
+        
+        <div class="controls">
+          <h3>Controls</h3>
+          <div class="control-grid">
+            <div class="control-item">↑ Move Up</div>
+            <div class="control-item">↓ Move Down</div>
+            <div class="control-item">← Move Left</div>
+            <div class="control-item">→ Move Right</div>
+          </div>
+        </div>
+        
+        <div class="game-tips">
+          <h3>Tips</h3>
+          <ul>
+            <li>Collect pink food to grow</li>
+            <li>Don't hit your own tail</li>
+            <li>Plan your moves ahead</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="right-panel">
+        <div id="canvas-holder"></div>
+      </div>
+    </div>
     <script src="sketch.js"></script>
     <script src="Snake.js"></script>
   </body>

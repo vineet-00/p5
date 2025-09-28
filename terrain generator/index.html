@@ -1,12 +1,34 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <meta charset="utf-8" />
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>3D Terrain Generator</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/p5.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="layout">
+    <aside class="info card">
+      <h1>3D Terrain Generator</h1>
+      <p class="desc">
+        This demo generates an animated 3D terrain using <strong>Perlin noise</strong>.
+        The sketch samples values from a 2D noise field, maps those values to vertex
+        elevations in a mesh, and advances a noise offset over time to simulate flying
+        across mountains and valleys.
+      </p>
+      <ul class="explain">
+        <li><strong>Mesh:</strong> grid of vertices tessellated into triangles</li>
+        <li><strong>Heights:</strong> map(noise(x, y), 0..1 → -height..+height)</li>
+        <li><strong>Animation:</strong> moving noise offset ("flying") produces smooth motion</li>
+      </ul>
+    </aside>
 
-  </head>
-  <body>
-    <script src="sketch.js"></script>
-  </body>
+    <main class="stage card">
+      <div id="canvas-container" class="canvas-wrap"></div>
+    </main>
+  </div>
+
+  <script src="sketch.js"></script>
+</body>
 </html>

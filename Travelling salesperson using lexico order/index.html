@@ -1,14 +1,44 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/addons/p5.dom.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/addons/p5.sound.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <meta charset="utf-8" />
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TSP (lexicographic) — Visual Demo</title>
 
-  </head>
-  <body>
-    <script src="sketch.js"></script>
-  </body>
+  <!-- p5.js (keep your original 0.7.3 if you want) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.min.js"></script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="layout">
+    <aside class="info card">
+      <h1>✦ Travelling Salesperson (lexicographic)</h1>
+
+      <!-- Richard Feynman style explanation -->
+      <p class="feynman">
+        Let me say it plainly: you have a handful of cities and you want the shortest route
+        that visits each one exactly once. One brute force way is to list every possible order
+        of cities, measure the length of each, and remember the shortest — tedious but certain.
+        The trick here is not to be clever about shortcuts but to walk through the permutations
+        in a neat, lexicographic order so we don't miss anything. Count, compare, keep the best —
+        that's it. It's simple, obvious, and honest.
+      </p>
+
+      <p class="notes">
+        This demo steps through permutations in lexicographic order. The top-left path (magenta)
+        is the best-so-far. The lower area shows the current permutation under test. The page
+        is laid out so the explanation and canvas are visible together without scrolling.
+      </p>
+
+      <small class="hint">Algorithm: next lexicographic permutation. City count: <strong id="city-count">10</strong>.</small>
+    </aside>
+
+    <main class="stage card">
+      <div id="canvas-container" class="canvas-wrap"></div>
+    </main>
+  </div>
+
+  <script src="sketch.js"></script>
+</body>
 </html>

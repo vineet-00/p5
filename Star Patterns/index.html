@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Star Pattern</title>
+
+  <!-- styles -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- p5 (CDN) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
+</head>
+<body>
+  <div class="page">
+    <main class="panel card">
+      <header class="header">
+        <div class="titleBlock">
+          <h1>Star Pattern</h1>
+          <p class="subtitle">A little geometry that makes surprising stars</p>
+        </div>
+        <div class="meta">
+          <div class="chip">p5.js</div>
+          <div class="chip">Hankin Lines</div>
+        </div>
+      </header>
+
+      <section class="canvas-wrap card" id="canvas-wrap">
+        <!-- p5 will put the canvas inside this container -->
+        <div id="canvas-container"></div>
+
+        <div class="info">
+          <p class="feynman">
+            Imagine you're standing at the middle of each edge of every square tile.
+            From that midpoint you shine two little rays, each tipped inward at an angle.
+            Where these rays meet — if they meet just right — a star is sketched.
+            The surprise is that a very simple rule applied over and over produces a rich,
+            delicate pattern. The code below simply finds those ray intersections and draws them.
+            That's all — but that all is beautiful.
+          </p>
+        </div>
+      </section>
+
+      <aside class="controls card">
+        <h3>Controls</h3>
+
+        <div class="control">
+          <label for="angleRange">Angle: <span id="angleVal">75</span>°</label>
+          <input id="angleRange" type="range" min="0" max="90" value="75" />
+        </div>
+
+        <div class="control">
+          <label for="deltaRange">Offset (delta): <span id="deltaVal">10</span></label>
+          <input id="deltaRange" type="range" min="0" max="25" value="10" />
+        </div>
+
+        <div class="control">
+          <label for="gridRange">Grid size (tile): <span id="gridVal">100</span> px</label>
+          <input id="gridRange" type="range" min="40" max="180" value="100" />
+        </div>
+
+        <div class="btns">
+          <button id="resetBtn">Reset</button>
+          <button id="randomBtn" class="ghost">Randomize</button>
+        </div>
+
+        <p class="footer-note">Tip: try small angle changes — the pattern transforms smoothly.</p>
+      </aside>
+    </main>
+  </div>
+
+  <!-- project scripts -->
+  <script src="Polygon.js"></script>
+  <script src="Edge.js"></script>
+  <script src="Hankin.js"></script>
+  <script src="sketch.js"></script>
+</body>
+</html>

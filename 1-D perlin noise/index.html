@@ -7,7 +7,87 @@
     <meta charset="utf-8" />
 
   </head>
+  <body><!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>1D Perlin Noise — Visual Playground</title>
+
+    <!-- p5.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/addons/p5.sound.min.js"></script>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
   <body>
+    <header class="topbar">
+      <h1>1D Perlin Noise</h1>
+      <p class="sub">A calm, rolling waveform born from noise — watch it evolve.</p>
+    </header>
+
+    <main class="layout">
+      <section class="canvas-area">
+        <div id="canvas-container" class="canvas-container"></div>
+
+        <div class="legend">
+          <div class="leg-item">Wave: <span class="dot path"></span></div>
+          <div class="leg-item">Sample dot: <span class="dot sample"></span></div>
+        </div>
+      </section>
+
+      <aside class="sidebar">
+        <article class="card description">
+          <h2>What's going on?</h2>
+          <p>
+            Perlin noise is a way to give randomness a mind — not jumpy and
+            chaotic, but smooth and believable. Imagine asking many gentle
+            neighbors for their opinion and averaging them — the result wiggles,
+            but it’s continuous. That wiggle forms the main line you see moving
+            across the canvas.
+          </p>
+          <p>
+            The <strong>sample dot</strong> floats along the curve to show one
+            “reading” of the noise at a time, while the faint horizontal line
+            divides high and low values, helping you see which parts are
+            above or below the midpoint — like +ve and -ve regions.
+          </p>
+          <p class="short">
+            In one sentence: <strong>Perlin noise gives you smooth randomness, shown as a rolling wave with a moving sample dot.</strong>
+          </p>
+        </article>
+        <div class="card controls">
+          <h3>Controls</h3>
+
+          <div class="control-row">
+            <button id="runPauseBtn" class="btn primary">Pause</button>
+            <button id="resetBtn" class="btn">Reset</button>
+          </div>
+
+          <label class="control-label">FPS (speed)</label>
+          <input id="fps" type="range" min="1" max="60" value="30" />
+
+          <label class="control-label">Noise increment (detail)</label>
+          <input id="inc" type="range" min="0.002" max="0.06" step="0.002" value="0.02" />
+
+          <label class="control-label">Amplitude (vertical scale)</label>
+          <input id="amp" type="range" min="0.2" max="2.0" step="0.05" value="1" />
+
+          <div class="control-row small">
+            <label><input id="showSample" type="checkbox" checked /> Show sample dot</label>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <script src="sketch.js" defer></script>
+  </body>
+</html>
+
     <main>
     </main>
     <script src="sketch.js"></script>

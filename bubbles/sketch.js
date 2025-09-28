@@ -63,7 +63,6 @@ class Bubble {
   }
 }
 
-// Utility: gradient background (vertical blue gradient)
 function setGradientBackground() {
   for (let i = 0; i < height; i++) {
     let inter = map(i, 0, height, 0, 1);

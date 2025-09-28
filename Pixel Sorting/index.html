@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Pixel Sort — Minimal Theme</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <!-- p5.js -->
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.6.0/lib/p5.min.js"></script>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="title">
+      <h1>Pixel Sorting</h1>
+      <p class="sub">Watch pixels line up — simple rules, beautiful emergence.</p>
+    </div>
+  </header>
+
+  <main class="center">
+    <div class="card canvas-card">
+      <div id="canvas-wrap" class="canvas-wrap"></div>
+      <div class="caption">Left: original • Right: sorting in progress</div>
+    </div>
+
+    <aside class="info-card">
+      <h2>A brief note</h2>
+      <p>
+        We take thousands of colored dots and quietly reorder them by a simple rule (here: hue).
+        Each tiny swap is trivial, but many swaps create visible order — like lining up marbles by color.
+      </p>
+    </aside>
+  </main>
+
+  <script src="sketch.js" defer></script>
+</body>
+</html>

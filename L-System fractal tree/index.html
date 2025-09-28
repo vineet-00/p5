@@ -3,21 +3,47 @@
 <head>
   <meta charset="utf-8" />
   <title>L-System Fractal Tree</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+  <!-- p5.js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.js"></script>
-  <link rel="stylesheet" type="text/css" href="style.css" />
+  <script src="sketch.js" defer></script>
 </head>
 <body>
   <main>
-    <h1>L-System Fractal Tree</h1>
-    <p class="desc">
-      An L-System (Lindenmayer System) is a mathematical formalism used to simulate the growth processes of plant development and other natural forms.  
-      Starting from an initial seed string called the "axiom," rewriting rules iteratively expand this string, which is then interpreted as graphical commands to draw fractal structures like trees.  
-      This project generates a fractal tree by applying production rules and using turtle graphics to visualize recursive branching patterns with variable angles.
-    </p>
-    <div id="canvas-container"></div>
-    <button id="generate-btn">Generate</button>
-    <div id="sentence-text"></div>
+    <header class="head">
+      <h1>L-System Fractal Tree</h1>
+      <p class="lead">
+        An L-System (Lindenmayer System) is a formal grammar originally devised to model plant growth. 
+        Starting from an initial seed string called the <strong>axiom</strong>, simple production rules iteratively replace characters to produce a longer sentence.
+        That sentence is then interpreted by turtle graphics commands (move, rotate, save/restore state) to draw branching geometry.
+      </p>
+      <p class="lead small">
+        This project uses a tiny axiom and one production rule to generate a fractal tree: short rules, repeated, produce complex, organic forms — exactly the sort of "finding things out" that Feynman loved.
+      </p>
+    </header>
+
+    <section class="workspace" aria-label="L-system workspace">
+      <div id="canvas-container" class="canvas-box" aria-hidden="false"></div>
+
+      <aside class="controls">
+        <div class="controls-top">
+          <button id="generate-btn" type="button">Generate</button>
+          <button id="reset-btn"    type="button">Reset</button>
+        </div>
+
+        <div class="control-row">
+          <label for="angle-slider">Angle</label>
+          <div class="angle-row">
+            <input id="angle-slider" type="range" min="0" max="60" value="25" step="1" />
+            <span id="angle-value">25°</span>
+          </div>
+          <div class="hint">Adjust the branching angle (degrees) — changes take effect immediately.</div>
+        </div>
+
+        <div id="sentence-text" class="sentence" aria-live="polite"></div>
+      </aside>
+    </section>
   </main>
-  <script src="sketch.js"></script>
 </body>
 </html>

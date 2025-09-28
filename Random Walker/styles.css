@@ -1,0 +1,112 @@
+:root{
+  --bg-1: #08112a;
+  --bg-2: #0f2a3a;
+  --accent: #ffc76b;
+  --muted: rgba(255,255,255,0.95);
+  --panel: rgba(255,255,255,0.04);
+  --glass: rgba(255,255,255,0.03);
+  --radius: 14px;
+}
+
+html,body{
+  height:100%;
+  margin:0;
+  font-family: Inter, "Helvetica Neue", Arial, sans-serif;
+  background: linear-gradient(135deg, var(--bg-1), var(--bg-2));
+  color: var(--muted);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+.wrap{
+  min-height:100%;
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+  gap:28px;
+  padding:36px 18px;
+  box-sizing:border-box;
+}
+
+.panel {
+  width: 420px;
+  max-width: calc(100vw - 40px);
+  background: var(--panel);
+  border-radius: var(--radius);
+  padding:20px 22px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.02);
+  backdrop-filter: blur(6px) saturate(120%);
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+h1{
+  margin:0 0 8px 0;
+  font-size:1.6rem;
+  color: var(--accent);
+  letter-spacing: -0.02em;
+  text-shadow: 0 2px 14px rgba(255,199,107,0.08);
+}
+
+p.lead{
+  margin: 0 0 12px 0;
+  line-height:1.5;
+  color: rgba(255,255,255,0.95);
+  font-size:0.98rem;
+}
+
+.explain {
+  font-size:0.95rem;
+  line-height:1.55;
+  color: rgba(255,255,255,0.85);
+  margin-top:8px;
+}
+
+.controls {
+  display:flex;
+  gap:12px;
+  margin-top:14px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+
+button {
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.06);
+  color: var(--muted);
+  padding:8px 12px;
+  border-radius:10px;
+  cursor:pointer;
+  font-size:0.95rem;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+  transition: transform .08s ease, box-shadow .08s ease;
+}
+button:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(0,0,0,0.45); }
+button:active { transform: translateY(0); }
+
+.canvas-wrap{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:12px;
+  width: min(680px, calc(100vw - 60px));
+}
+
+#sketch-holder{
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 18px 60px rgba(0,0,0,0.6);
+  border: 1px solid rgba(255,255,255,0.04);
+  background: transparent;
+}
+
+.caption{
+  font-size:0.86rem;
+  color: rgba(255,255,255,0.7);
+  text-align:center;
+  margin-top:6px;
+}
+
+@media (max-width:900px){
+  .wrap { flex-direction:column; align-items:center; padding:20px; }
+  .panel { width: 100%; max-width:720px; }
+}

@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Circle Packing — Visual Playground</title>
+
+  <!-- p5.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.6.0/lib/p5.min.js"></script>
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <header class="topbar">
+    <div>
+      <h1>Circle Packing</h1>
+      <p class="sub">Watch circles grow and settle — maximal packing born from gentle rules.</p>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="canvas-area">
+      <div id="canvas-parent" class="canvas-parent"></div>
+<!-- 
+      <div class="legend">
+        <div class="leg-item"><span class="dot neutral"></span> Growing circles</div>
+        <div class="leg-item"><span class="dot stopped"></span> Stopped / packed</div>
+      </div> -->
+    </section>
+
+    <aside class="sidebar">
+      <article class="card description">
+        <h2>What's happening?</h2>
+        <p>
+          Think of each circle as a polite kid on a playground who wants to stretch out but won't push others. Each starts tiny and grows slowly until it bumps another circle or the edge — then it stops. The result is a quiet packing: no overlaps, just many little local decisions that produce a beautiful global pattern.
+        </p>
+        <p class="short">
+          In short: <strong>many simple rules + gentle growth → complex, pleasing packing.</strong>
+        </p>
+      </article>
+
+      <div class="card controls">
+        <h3>Controls</h3>
+
+        <div class="control-row">
+          <button id="runPauseBtn" class="btn primary">Pause</button>
+          <button id="resetBtn" class="btn">Reset</button>
+        </div>
+
+        <label class="control-label">Mode</label>
+        <select id="modeSelect" class="select">
+          <option value="kitten">Kitten (color)</option>
+          <option value="year2025">Year 2025 (silhouette)</option>
+        </select>
+
+        <label class="control-label">Growth speed</label>
+        <input id="growthRate" type="range" min="0.2" max="3.0" step="0.1" value="1.0">
+      </div>
+    </aside>
+  </main>
+
+  <!-- project scripts -->
+  <script src="Circle.js"></script>
+  <script src="sketch.js" defer></script>
+</body>
+</html>

@@ -1,15 +1,67 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>2D Perlin Noise — Visual Playground</title>
+
+    <!-- p5.js CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/addons/p5.sound.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <meta charset="utf-8" />
 
+    <link rel="stylesheet" href="style.css" />
   </head>
+
   <body>
-    <main>
+    <header class="topbar">
+      <h1>2D Perlin Noise</h1>
+      <p class="sub">Explore smooth, organic textures generated from noise.</p>
+    </header>
+
+    <main class="layout">
+      <section class="canvas-area">
+        <div id="canvas-container" class="canvas-container"></div>
+
+        <div class="legend">
+          <div class="leg-item">Brightness: <span class="dot path"></span> Low/High values</div>
+        </div>
+      </section>
+
+      <aside class="sidebar">
+        <article class="card description">
+          <h2>What's happening?</h2>
+          <p>
+            2D Perlin noise is like a calm, unpredictable landscape. Each pixel’s brightness
+            is determined by gently averaging “opinions” from neighboring points in two dimensions.
+            The result is smooth, natural-looking patterns — no harsh jumps, just soft gradients.
+          </p>
+          <p>
+            Dark areas correspond to low values, light areas to high values. If you animate it,
+            the patterns seem alive, slowly flowing and evolving, like clouds drifting in the sky.
+          </p>
+          <p class="short">
+            In one sentence: <strong>2D Perlin noise creates smooth, organic textures with a natural flow.</strong>
+          </p>
+        </article>
+
+        <div class="card controls">
+          <h3>Controls</h3>
+
+          <div class="control-row">
+            <button id="runPauseBtn" class="btn primary">Pause</button>
+            <button id="resetBtn" class="btn">Reset</button>
+          </div>
+
+          <label class="control-label">FPS (speed)</label>
+          <input id="fps" type="range" min="1" max="60" value="30" />
+
+          <label class="control-label">Noise increment (detail)</label>
+          <input id="inc" type="range" min="0.002" max="0.06" step="0.002" value="0.02" />
+
+        </div>
+      </aside>
     </main>
-    <script src="sketch.js"></script>
+
+    <script src="sketch.js" defer></script>
   </body>
 </html>

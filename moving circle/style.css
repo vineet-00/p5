@@ -1,7 +1,115 @@
-html, body {
+body {
   margin: 0;
   padding: 0;
+  background: linear-gradient(120deg, #09203f 0%, #537895 100%);
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #e6eaf2;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+main {
+  width: 100%;
+  max-width: 980px;
+  padding: 36px 0;
+  box-sizing: border-box;
+}
+
+.content-wrapper {
+  display: flex;
+  gap: 52px;
+  align-items: center;
+  min-height: 70vh;
+  justify-content: center;
+}
+
+.description-panel {
+  flex: 1;
+  max-width: 380px;
+  padding: 36px 32px 36px 38px;
+  background: rgba(22,31,50, 0.68);
+  border-radius: 24px 40px 32px 20px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 40px 0 #27385280, 0 0 0 1.5px #243446;
+  border-left: 5px solid #00ffe7;
+  border-top: 2px solid #82c4f7;
+}
+
+.description-panel h1 {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: #00ffe7;
+  margin-bottom: 20px;
+  text-shadow: 0 0 12px #1e5066;
+  line-height: 1.1;
+  letter-spacing: 1px;
+}
+
+.description-panel p {
+  font-size: 1.12rem;
+  line-height: 1.65;
+  margin-bottom: 20px;
+  color: #eafcff;
+}
+
+.description-panel strong {
+  color: #fbff00;
+  font-weight: 700;
+}
+
+.controls-info {
+  margin-top: 24px;
+  padding: 13px 20px;
+  background: rgba(0,255,231,0.10);
+  border-radius: 10px;
+  border-left: 3px solid #00ffe7;
+}
+
+.controls-info p {
+  margin: 0;
+  color: #a5ffe9;
+  font-size: 1rem;
+  font-style: italic;
+}
+
+.canvas-panel {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#canvas-container {
+  position: relative;
+  border-radius: 20px 36px 24px 28px;
+  overflow: hidden;
+  box-shadow: 0 0 40px #00ffe755, 0 0 80px #157aaf33;
+  background: radial-gradient(ellipse at bottom right, #282d4b 80%, #2ce6c9 100%);
+  border: 2.5px solid #33f7e0;
+}
+
 canvas {
   display: block;
+  background: transparent !important;
+}
+
+/* Responsive design */
+@media (max-width: 980px) {
+  .content-wrapper {
+    flex-direction: column;
+    gap: 34px;
+    text-align: center;
+    min-height: 0;
+  }
+
+  .description-panel {
+    max-width: 100vw;
+    padding: 26px 8vw;
+  }
+
+  .canvas-panel {
+    width: 100%;
+  }
 }

@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>A* Pathfinding — Visual Playground</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.6.0/lib/p5.min.js"></script>
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <header class="topbar">
+      <h1>A* Pathfinding</h1>
+      <p class="sub">A simple, visual, and playful demo of an A* algorithm.</p>
+    </header>
+
+    <main class="layout">
+      <section class="canvas-area">
+        <!-- p5 canvas will be created inside this container -->
+        <div id="canvas-container" class="canvas-container"></div>
+
+        <div class="legend">
+          <div class="leg-item"><span class="dot start"></span> Start</div>
+          <div class="leg-item"><span class="dot end"></span> End</div>
+          <div class="leg-item"><span class="dot open"></span> Open set</div>
+          <div class="leg-item"><span class="dot closed"></span> Closed set</div>
+          <div class="leg-item"><span class="dot wall"></span> Obstacle</div>
+          <div class="leg-item"><span class="dot path"></span> Current path</div>
+        </div>
+      </section>
+
+      <aside class="sidebar">
+        <article class="card description">
+          <h2>What's happening?</h2>
+          <p>
+            Imagine you're trying to walk across a field with rocks scattered about.
+            A* behaves like a curious explorer: it keeps a list of places it
+            could try next (<em>open set</em>) and a list of places it's already
+            tried (<em>closed set</em>). For each new step it guesses how good
+            that step looks now and how close it seems to the goal — add those
+            guesses together and pick the most promising place. Repeat until you
+            reach the goal or run out of sensible choices.
+          </p>
+          <p>
+            That's it. No magic — just careful bookkeeping + an honest intuition
+            about which directions look promising.
+          </p>
+        </article>
+
+        <div class="card controls">
+          <h3>Controls</h3>
+
+          <div class="control-row">
+            <button id="runPauseBtn" class="btn primary">Pause</button>
+            <button id="resetBtn" class="btn">Reset</button>
+            <button id="randomBtn" class="btn">Randomize Walls</button>
+          </div>
+
+          <label class="control-label">Speed (steps per frame)</label>
+          <input id="speed" type="range" min="1" max="50" value="6" />
+
+          <label class="control-label">Wall density</label>
+          <input id="wallDensity" type="range" min="0" max="0.75" step="0.01" value="0.40" />
+
+          <div class="control-row small">
+            <label>
+                <input input id="diagToggle" type="checkbox" />
+                    Allow diagonals 
+                <span class="description">(cut corners, move in 8 directions)</span>
+            </label>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <!-- Scripts -->
+    <script src="Spot.js"></script>
+    <script src="sketch.js" defer></script>
+  </body>
+</html>

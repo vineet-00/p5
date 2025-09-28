@@ -1,7 +1,72 @@
-html, body {
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
-canvas {
+
+body, html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #0a0a1a;
+  color: #e0e6ed;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+/* Left description panel */
+.panel {
+  flex: 0 0 320px;
+  padding: 2rem;
+  background: #12122b;
+  overflow: auto;
+}
+
+.panel h1 {
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+.panel p {
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.panel h2 {
+  margin: 1rem 0 0.5rem;
+  font-size: 1.2rem;
+  border-bottom: 1px solid #333;
+  padding-bottom: 0.3rem;
+}
+
+.panel ul {
+  list-style: disc inside;
+}
+
+.panel li {
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+/* Right WebGL canvas panel */
+#canvas-holder {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at center, #000814, #001d3d);
+}
+
+/* Ensure p5 canvas fills its container */
+#canvas-holder canvas {
+  width: 100%;
+  height: 100%;
   display: block;
 }

@@ -1,16 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.10.0/p5.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.10.0/addons/p5.sound.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <meta charset="utf-8" />
+<head>
+  <meta charset="utf-8" />
+  <title>TSP — Genetic Algorithm (Simple & Attractive)</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.10.0/p5.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Traveling Salesperson — Genetic Algorithm</h1>
+    </header>
 
-  </head>
-  <body>
-    <main>
-    </main>
-    <script src="sketch.js"></script>
-    <script src="gentic.js"></script>
-  </body>
+    <section class="left">
+      <div class="card">
+        <h2>What it is</h2>
+        <p class="desc">
+          Imagine several towns on a sheet of paper. We want to visit every town and return home using as little road as possible.
+          Instead of trying every route, a crowd of candidate routes competes: the shorter ones are favored, they mix, and occasionally
+          small random changes (mutations) let the crowd discover unexpected improvements.
+        </p>
+
+        <div class="controls">
+          <button id="pauseBtn">Pause</button>
+          <button id="resetBtn">Reset</button>
+        </div>
+
+        <div class="stats">
+          <div>Gen: <span id="gen">0</span></div>
+          <div>Best: <span id="best">∞</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="right">
+      <div id="sketch-holder" class="card"></div>
+    </section>
+  </div>
+
+  <script src="genetic.js"></script>
+  <script src="sketch.js"></script>
+</body>
 </html>

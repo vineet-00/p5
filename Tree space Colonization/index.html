@@ -1,18 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Tree — Space Colonization (Visual)</title>
+
+    <!-- p5.js (same major version you used) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/addons/p5.sound.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <div class="layout">
+      <aside class="info card">
+        <h1>✦ Tree — Space Colonization</h1>
+
+        <p class="feynman">
+          I'll put it simply: the tree doesn't decide where to grow by guessing — it responds to
+          food. The leaves are little targets floating around the canopy. Branch tips sense the
+          nearby leaves; each leaf nudges the nearest tip toward it. Tips that gather many nudges
+          grow; leaves that are reached disappear. Step after step the branches push outward and
+          the canopy fills itself — that's all there is. Count, nudge, grow, repeat. Nothing
+          mystical, just a tidy rule that makes a tree.
+        </p>
+
+        <p class="notes">
+          This sketch implements the Space Colonization algorithm: a cloud of <em>leaves</em> attract
+          branch tips; tips grow toward the averaged attraction and new branches are spawned.
+          The algorithm parameters are the same as your original code.
+        </p>
+      </aside>
+
+      <main class="stage card">
+        <div id="canvas-container" class="canvas-wrap"></div>
+      </main>
+    </div>
+
+    <!-- your algorithm files — keep these unchanged -->
     <script src="branch.js"></script>
     <script src="leaf.js"></script>
     <script src="tree.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <meta charset="utf-8" />
 
-  </head>
-  <body>
-    <main>
-    </main>
+    <!-- the updated sketch glue (handles canvas attachment + resize) -->
     <script src="sketch.js"></script>
   </body>
 </html>

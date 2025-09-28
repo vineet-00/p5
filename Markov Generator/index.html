@@ -8,16 +8,33 @@
 </head>
 <body>
   <main>
-    <h1>Markov Text Generator</h1>
-    <p class="description">
-      A Markov Generator creates new text by analyzing patterns in existing text sequences.  
-      Using the concept of n-grams, it builds a probabilistic model that predicts what character(s) are likely to follow a given sequence.  
-      This allows it to produce unique, sometimes surprising output that mimics the style and structure of the original source text based purely on statistical patterns.
-    </p>
-    <textarea id="input-text" rows="10" cols="80" spellcheck="false"></textarea>
-    <button id="generate-btn">Generate Text</button>
-    <div id="output-container"></div>
+    <header>
+      <h1>Markov Text Generator</h1>
+      <p class="description">A Markov Generator creates new text by analyzing patterns in existing text sequences.</p>
+      <p class="description">
+        Imagine reading a book and noticing how certain letters tend to follow
+        others—like "q" is almost always followed by "u."  
+        That’s what a <em>Markov chain</em> does: it learns the rules of sequence
+        from a given text. Then, instead of copying it word for word, it plays
+        a statistical guessing game—choosing the most likely next character
+        based on what came before.  
+        The result? New passages that echo the style of the source but wander
+        into surprising, sometimes nonsensical, sometimes poetic territory.
+      </p>
+    </header>
+
+    <section class="input-section">
+      <label for="input-text">Enter Source Text</label>
+      <textarea id="input-text" rows="12" spellcheck="false"></textarea>
+      <button id="generate-btn">Generate Text</button>
+    </section>
+
+    <section class="output-section">
+      <h2>Generated Output</h2>
+      <div id="output-container"></div>
+    </section>
   </main>
+
   <script src="MarkovGenerator.js"></script>
   <script src="sketch.js"></script>
 </body>

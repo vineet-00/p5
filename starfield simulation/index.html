@@ -1,16 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.3/p5.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.3/addons/p5.sound.min.js"></script>
-    <script src="Stars.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css">
     <meta charset="utf-8" />
+    <title>Celestial Drift — Mouse Driven Starfield</title>
 
+    <!-- Google font for a modern, elegant look -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <!-- main stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- p5 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.3/p5.js"></script>
+
+    <!-- Stars class then sketch (defer so DOM loads) -->
+    <script src="Stars.js" defer></script>
+    <script src="sketch.js" defer></script>
   </head>
+
   <body>
-    <main>
+    <main class="page">
+      <header class="hero">
+        <div class="hero-inner">
+          <div class="hero-text">
+            <h1>Celestial Drift</h1>
+            <p class="subtitle">
+              A minimalist, elegant starfield — the pace of the voyage follows your mouse. Move horizontally to accelerate through soft glowing stars and trails. Designed to be calming and refined; no UI clutter, just the journey.
+            </p>
+          </div>
+
+          <div class="meta">
+            <div class="hint">Tip: move your mouse left/right to change speed</div>
+            <div class="credits">Built with <strong>p5.js</strong> · <span id="starCount">800 stars</span></div>
+          </div>
+        </div>
+      </header>
+
+      <section class="canvas-wrap">
+        <!-- p5 will attach the canvas into this element -->
+        <div id="canvas-container" class="canvas-container" aria-hidden="false"></div>
+      </section>
     </main>
-    <script src="sketch.js"></script>
   </body>
 </html>

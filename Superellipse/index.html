@@ -1,15 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Superellipse Studio</title>
+
+    <!-- p5 + sound -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/addons/p5.sound.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <meta charset="utf-8" />
 
+    <!-- styles -->
+    <link rel="stylesheet" type="text/css" href="style.css" />
   </head>
+
   <body>
-    <main>
-    </main>
+    <div class="app">
+      <main class="panel">
+        <header class="panel-header">
+          <div>
+            <h1>Superellipse Studio</h1>
+            <p class="subtitle">Small rules, big shapes — tweak the exponent and watch circles become squares and stars.</p>
+          </div>
+          <div class="meta">interactive geometry</div>
+        </header>
+
+        <section class="canvas-card">
+          <div id="canvas-container"></div>
+          <p class="feynman">
+            In plain words — take the cosine and sine of an angle, raise their absolute values to a power, then restore sign.
+            The power controls roundness: with one rule we can smoothly move from a circle to a square and beyond.
+            That's the charm: a tiny change in an exponent makes the whole shape feel different.
+          </p>
+        </section>
+
+        <aside class="controls-card">
+          <h3>Controls</h3>
+
+          <label>Exponent (n): <span id="nVal">2.00</span></label>
+          <input id="nRange" type="range" min="0.10" max="10" step="0.01" value="2">
+
+          <label>Scale A: <span id="aVal">100</span></label>
+          <input id="aRange" type="range" min="10" max="300" step="1" value="100">
+
+          <label>Scale B: <span id="bVal">100</span></label>
+          <input id="bRange" type="range" min="10" max="300" step="1" value="100">
+
+          <label>Resolution (angle step): <span id="stepVal">0.10</span></label>
+          <input id="stepRange" type="range" min="0.02" max="0.4" step="0.01" value="0.10">
+
+          <div class="row">
+            <button id="animateBtn">Animate: Off</button>
+            <button id="rotateBtn">Rotate: Off</button>
+          </div>
+
+          <div class="row">
+            <button id="soundBtn" class="ghost">Sound Reactive: Off</button>
+            <button id="saveBtn" class="ghost">Save PNG</button>
+          </div>
+
+          <div class="presets">
+            <strong>Presets</strong>
+            <button data-n="0.7">Star-ish</button>
+            <button data-n="2">Rounded</button>
+            <button data-n="6">Boxy</button>
+          </div>
+
+          <p class="note">Tip: enable <em>Rotate</em> and tweak exponent while rotating to reveal morph transitions.</p>
+        </aside>
+      </main>
+    </div>
+
     <script src="sketch.js"></script>
   </body>
 </html>

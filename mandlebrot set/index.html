@@ -1,29 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="stylesheet" href="style.css" />
     <meta charset="utf-8" />
-    <title>Mandelbrot Set Visualization</title>
+    <title>Mandelbrot Explorer</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.4/p5.js"></script>
+    <script src="sketch.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
   </head>
+
   <body>
-    <main>
-      <h1>Mandelbrot Set Visualization</h1>
-      <p class="desc">
-        The Mandelbrot set is a famous fractal defined by iterating the function <strong>z → z² + c</strong> in the complex plane. This visualization computes which complex points remain bounded (shown in black), with colors indicating how quickly unbounded points escape to infinity, revealing intricate and infinitely detailed patterns.
-      </p>
-      <div class="controls">
-        <button id="resetBtn">Reset View</button>
-        <button id="zoomInBtn">Zoom In</button>
-        <button id="zoomOutBtn">Zoom Out</button>
-        <span>Click on canvas to recenter and zoom in!</span>
-      </div>
-      <div id="canvas-container"></div>
-      <div class="info">
-        <p>Zoom: <span id="zoomLevel">1x</span> | Center: (<span id="centerX">-0.75</span>, <span id="centerY">0</span>)</p>
-      </div>
+    <main class="book-layout">
+      <!-- Left "page" -->
+      <section class="page left">
+        <h1>Mandelbrot Explorer</h1>
+        <p class="feynman">
+          Imagine you’ve got a very simple rule: take a number, square it, then
+          add another number. Do it again, and again. Now — some numbers stay
+          calm forever, never running away. Others shoot off to infinity. If you
+          mark the calm ones in black and the restless ones in color, a picture
+          begins to appear: coastlines, spirals, galaxies. All from one little
+          rule. The Mandelbrot set is like nature’s doodle, drawn with pure
+          mathematics.
+        </p>
+        <p class="short-how">
+          <em>How it works:</em> Every pixel on the canvas is a number. We
+          repeat the formula <code>z → z² + c</code>. If it stays bounded after
+          many tries, it’s part of the set (black). Otherwise, its escape speed
+          gives us a color.
+        </p>
+      </section>
+
+      <!-- Right "page" -->
+      <section class="page right">
+        <div id="canvas-container" class="canvas-box"></div>
+
+        <aside class="controls">
+          <div class="row">
+            <button id="resetBtn">Reset</button>
+            <button id="zoomInBtn">Zoom In</button>
+            <button id="zoomOutBtn">Zoom Out</button>
+          </div>
+
+          <div class="block">
+            <label for="iterRange">
+              Max iterations: <span id="iterValue">500</span>
+            </label>
+            <input
+              id="iterRange"
+              type="range"
+              min="50"
+              max="2000"
+              step="10"
+              value="500"
+            />
+          </div>
+
+          <div class="block">
+            <label for="paletteSelect">Color palette</label>
+            <select id="paletteSelect">
+              <option value="classic">Classic (violet→red→gold)</option>
+              <option value="fire">Fire</option>
+              <option value="ocean">Ocean</option>
+              <option value="mono">Monochrome</option>
+            </select>
+          </div>
+
+          <div class="info">
+            <div>Zoom: <span id="zoomLevel">1x</span></div>
+            <div>Center: (<span id="centerX">-0.75</span>, <span id="centerY">0</span>)</div>
+            <small>Tip: click the canvas to zoom into that spot.</small>
+          </div>
+        </aside>
+      </section>
     </main>
-    <script src="sketch.js"></script>
   </body>
 </html>

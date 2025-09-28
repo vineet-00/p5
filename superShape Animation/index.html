@@ -1,13 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/p5.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/addons/p5.sound.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <meta charset="utf-8" />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Harmonic Superform — an elegant Superformula globe</title>
 
-  </head>
-  <body>
-    <script src="sketch.js"></script>
-  </body>
+  <!-- Modern p5 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.3/p5.min.js"></script>
+
+  <!-- Elegant system font + Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <!-- sketch comes after DOM so we can attach canvas to container -->
+  <script src="sketch.js" defer></script>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="inner">
+      <div class="title">
+        <h1>Harmonic Superform</h1>
+        <p class="tagline">
+          A study in geometric harmonics — a 3D form generated from the <em>Superformula</em>.
+          Move your mouse to steer the rotation and pace. The form and shading are intentionally
+          muted and contemplative: quiet indigo depths with warm sand highlights.
+        </p>
+      </div>
+
+      <div class="meta">
+        <div class="note">
+          <strong>Note:</strong> Inspired by the Superformula (J. Gielis) used to generate complex organic shapes.
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="stage">
+    <div id="canvas-holder" class="canvas-holder" aria-hidden="false"></div>
+  </main>
+
+  <footer class="foot">
+    <div class="inner-foot">
+      <small>Harmonic Superform — mathematical visualization • built with p5.js</small>
+    </div>
+  </footer>
+</body>
 </html>

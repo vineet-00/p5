@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Asteroids Destroyer — Arcade</title>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.6.0/lib/p5.min.js"></script>
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body class="theme-neon">
+    <header class="topbar">
+      <div>
+        <h1>Asteroids Destroyer</h1>
+        <p class="sub">Fly, shoot, survive — simple rules, emergent excitement.</p>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="canvas-area">
+        <div id="canvas-parent" class="canvas-parent"></div>
+        <div id="hud" class="hud">Asteroids: <span id="asteroidCount">0</span></div>
+      </section>
+
+      <aside class="sidebar">
+        <article class="card description">
+          <h2>What's happening?</h2>
+          <p>
+            The world is simple: rocks drift, a little ship nudges and shoots, and when a rock is hit it splits into smaller rocks. No single part is clever — the magic comes from many small interactions. That’s the charm: simple laws produce lively behavior.
+          </p>
+          <p>
+            Controls are intentionally minimal — thrust to move, rotate to aim, space to fire. Watch how the pieces move and how local collisions create the large-scale dance.
+          </p>
+        </article>
+
+        <div class="card controls">
+          <h3>Controls</h3>
+          <div class="control-row">
+              <button id="runPauseBtn" type="button" class="btn primary">Pause</button>
+              <button id="resetBtn"    type="button" class="btn">Reset</button>
+              <button id="addAstBtn"   type="button" class="btn">Add Asteroid</button>
+            </div>
+          <label class="control-label">Asteroid speed multiplier</label>
+          <input id="speedMul" type="range" min="0.2" max="3" step="0.1" value="1" />
+
+          <div class="control-row small">
+            <label><input id="trailsToggle" type="checkbox" /> Trails (motion blur)</label>
+          </div>
+
+          <div class="meta">
+            <small>Keys: ← → rotate, ↑ thrust, SPACE shoot. Try the trails for a nice retro glow.</small>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <!-- game classes first, then main Sketch -->
+    <script src="Asteroids.js" defer></script>
+    <script src="Laser.js" defer></script>
+    <script src="Ship.js" defer></script>
+    <script src="Sketch.js" defer></script>
+  </body>
+</html>

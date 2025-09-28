@@ -1,13 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/p5.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/addons/p5.sound.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <meta charset="utf-8" />
+<head>
+  <meta charset="utf-8" />
+  <title>Interactive Bubble Constellation</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.10.0/p5.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main>
+    <div class="content-wrapper">
+      <section class="description-panel">
+        <h1>Interactive Bubble Constellation</h1>
+        <p>
+          This dynamic digital artwork simulates a floating constellation of bubbles drifting and interacting within the canvas.
+          Bubbles glow brightly when overlapping, symbolizing connections and sparks of interaction.
+        </p>
+        <p>
+          The gentle organic motion invites meditation, while user interaction allows dragging bubbles to rearrange and create unique patterns.
+        </p>
+        <p>
+          This blend of randomness, geometry, and interactivity creates a contemplative and playful visual experience.
+        </p>
+        <div class="controls-info">
+          <p><em>Click and drag bubbles with mouse or finger to rearrange the constellation.</em></p>
+          <p><em>Bubbles glow when touching, emphasizing connection and unity.</em></p>
+        </div>
+      </section>
 
-  </head>
-  <body>
-    <script src="sketch.js"></script>
-  </body>
+      <div class="canvas-panel">
+        <div id="canvas-container"></div>
+      </div>
+    </div>
+  </main>
+  <script src="sketch.js"></script>
+</body>
 </html>

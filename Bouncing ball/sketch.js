@@ -13,7 +13,7 @@ var ball = {
 
 function setup() {
   const canvas = createCanvas(600, 400);
-  canvas.parent('canvas-container'); // attach canvas inside container div
+  canvas.parent('canvas-container');
   background(28, 28, 41);
 }
 

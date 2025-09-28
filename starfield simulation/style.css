@@ -1,7 +1,85 @@
-html, body {
-  margin: 0;
-  padding: 0;
+:root{
+  --glass-border: rgba(255,255,255,0.08);
+  --muted: rgba(255,255,255,0.78);
+  --max-width: 1100px;
+  --radius: 14px;
+  --shadow: 0 8px 30px rgba(11,14,23,0.5);
+  --font: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
 }
-canvas {
-  display: block;
+
+/* Base */
+* { box-sizing: border-box; }
+html,body { height: 100%; margin: 0; }
+body {
+  font-family: var(--font);
+  background: radial-gradient(1200px 600px at 10% 20%, #02111b 0%, #00040a 30%, #03020b 100%);
+  color: white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Layout */
+.page {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  place-items: center;
+  padding: 36px 28px;
+}
+
+/* Hero */
+.hero {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-bottom: 18px;
+}
+.hero-inner {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius: var(--radius);
+  padding: 18px 22px;
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--shadow);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  backdrop-filter: blur(6px);
+}
+.hero-text { max-width: 72%; }
+h1 { margin: 0; font-weight: 800; font-size: 22px; letter-spacing: -0.02em; }
+.subtitle { margin: 6px 0 0; opacity: 0.95; color: var(--muted); font-weight: 300; font-size: 14px; }
+
+/* Meta area on the right of the hero */
+.meta { text-align: right; display:flex; flex-direction:column; gap:6px; align-items:flex-end; }
+.hint { font-size: 13px; color: rgba(230,245,255,0.9); font-weight: 500; }
+.credits { font-size: 13px; color: rgba(255,255,255,0.8); }
+
+/* Canvas area */
+.canvas-wrap {
+  width: 100%;
+  max-width: var(--max-width);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  align-items: start;
+}
+
+.canvas-container {
+  width: 100%;
+  min-height: 560px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.04);
+  box-shadow: 0 20px 40px rgba(2,6,15,0.6);
+  position: relative;
+  background: radial-gradient(900px 400px at 50% 25%, rgba(9,19,30,0.4) 0%, rgba(0,0,0,0.35) 30%, rgba(0,0,0,0.6) 100%);
+}
+
+/* Responsive */
+@media (max-width: 860px) {
+  .hero-inner { flex-direction: column; align-items: flex-start; }
+  .hero-text { max-width: 100%; }
+  .meta { align-items: flex-start; text-align: left; }
+  .canvas-container { min-height: 420px; }
 }
