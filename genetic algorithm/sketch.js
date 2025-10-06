@@ -1,6 +1,7 @@
+// sketch.js
 let population;
 let count = 0;
-let lifespan = 200;
+let lifespan = 150; 
 let target;
 let rx = 100;
 let ry = 150;
@@ -8,6 +9,13 @@ let rw = 200;
 let rh = 10;
 let generation = 0;
 let paused = false;
+
+// Tunable globals to speed up evolution (kept as top-level so other files can read them)
+const POP_SIZE = 30;           
+const mutationRate = 0.05;     
+const geneMag = 0.5;
+const fitnessCompletedBoost = 50; 
+const velocityLimit = 6;       
 
 function setup() {
   // canvas size chosen so layout fits standard desktop view without scrolling
@@ -74,12 +82,13 @@ function draw() {
   push();
   noStroke();
   fill(255, 255, 255, 12);
-  rect(8, 8, 120, 42, 8);
+  rect(8, 8, 140, 52, 8);
   fill(200);
   textSize(11);
   fill(160);
   text(`Gen: ${generation}`, 16, 24);
   text(`Frame: ${count}/${lifespan}`, 16, 40);
+  text(`Pop: ${population.popsize}`, 16, 56);
   pop();
 }
 

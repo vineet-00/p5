@@ -18,10 +18,10 @@ class Rocket {
 
   calcFitness() {
     const d = dist(this.pos.x, this.pos.y, target.x, target.y);
-    // closer => higher fitness
+    // closer => higher fitness (map distance to fitness)
     this.fitness = map(d, 0, width, width, 0);
 
-    if (this.completed) this.fitness *= 10;
+    if (this.completed) this.fitness *= fitnessCompletedBoost; 
     if (this.crashed) this.fitness /= 10;
   }
 
@@ -42,14 +42,15 @@ class Rocket {
     if (this.pos.x > width || this.pos.x < 0) this.crashed = true;
     if (this.pos.y > height || this.pos.y < 0) this.crashed = true;
 
-    // apply current gene
-    this.applyforce(this.dna.genes[count]);
+    // apply current gene (safeguard if gene missing)
+    const gene = this.dna.genes[count];
+    if (gene) this.applyforce(gene);
 
     if (!this.completed && !this.crashed) {
       this.vel.add(this.acc);
       this.pos.add(this.vel);
       this.acc.mult(0);
-      this.vel.limit(4);
+      this.vel.limit(velocityLimit); 
     }
   }
 
