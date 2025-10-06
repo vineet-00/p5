@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Attraction & Repulsion</title>
+
+    <!-- p5 -->
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/addons/p5.sound.min.js"></script>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <main class="book">
+      <aside class="page page-left">
+        <h1 class="title">Particles Flux</h1>
+        <h2 class="subtitle">Attraction & Repulsion — a tiny lab for intuition</h2>
+
+        <article class="description">
+          <p>
+            Here each particle is a little explorer and each green point is an invisible teacher.
+            Particles are nudged by simple inverse-square forces: sometimes they pull, sometimes
+            (when they get very close) they push away. Watch patterns emerge from these playful rules —
+            it’s the same spirit Feynman used for building intuition: small rules, surprising behaviour.
+          </p>
+        </article>
+
+        <div class="controls">
+          <div class="control-row">
+            <button id="clear-attractors">Clear Attractors</button>
+            <button id="clear-particles">Clear Particles</button>
+          </div>
+          <div class="control-row">
+            <button id="toggle-trails">Toggle Trails</button>
+            <button id="burst">Add Burst</button>
+          </div>
+          <p class="hint">Tip: click or tap the canvas to add attractors. Resize the window — the canvas will fill the page.</p>
+        </div>
+      </aside>
+
+      <section class="page page-right">
+        <div id="canvas-container" class="canvas-wrap" aria-label="p5 canvas container"></div>
+        <div class="overlay-hint">Click to add attractors • Green = attractor</div>
+      </section>
+    </main>
+
+    <!-- Project scripts: Particle first so sketch can use it -->
+    <script src="Particle.js"></script>
+    <script src="sketch.js"></script>
+  </body>
+</html>

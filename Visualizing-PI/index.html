@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Pi — A Feynman Sketch</title>
+
+    <!-- Google fonts: a book-like face + light comic flavor -->
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700&family=Comic+Neue:wght@300;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- p5 -->
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+  </head>
+  <body>
+    <main class="stage">
+      <header class="titlebox">
+        <h1>Pi — A Feynman Sketch</h1>
+        <p class="subtitle">Turning digits into ink-strokes. A playful, compact visualization inspired by comic-book layout and the curious voice of Richard Feynman.</p>
+      </header>
+
+      <section class="content">
+        <div id="canvas-container" class="panel canvas-panel" aria-label="PI visual canvas">
+          <!-- p5 will insert the canvas here -->
+        </div>
+
+        <aside class="panel info-panel">
+          <div class="comic-box">
+            <h2>Why this works</h2>
+            <p class="feynman">“If you want to know a little about nature, you should not be afraid of numbers. Here I try to see the spirit of π by letting its digits draw.”</p>
+            <p>This sketch maps each digit (0–9) to a point on a circle, then draws lines between successive digits. Patterns emerge when many digits meet — like tiny footprints of the number.</p>
+          </div>
+
+          <div class="comic-box controls">
+            <h3>Controls</h3>
+            <div class="control-row">
+              <button id="btn-play" onclick="pauseToggle()">Pause</button>
+              <button onclick="resetSketch()">Reset</button>
+              <button id="btn-fade" onclick="toggleFade()">Fade: Off</button>
+            </div>
+
+            <label for="speed">Speed</label>
+            <input id="speed" type="range" min="1" max="50" value="6">
+
+            <div class="status">
+              <div>Index: <span id="status-index">0</span></div>
+              <div>Digit: <span id="status-digit">-</span></div>
+            </div>
+          </div>
+
+          <div class="comic-box attribution">
+            <small>Inspired by the Washington Post gallery: <em>10 stunning images that show the beauty hidden in π</em>.</small>
+          </div>
+        </aside>
+      </section>
+
+      <footer class="byline">Made compact and curious — press <strong>Pause</strong> to inspect; <strong>Reset</strong> to start again.</footer>
+    </main>
+
+    <script src="sketch.js"></script>
+  </body>
+</html>

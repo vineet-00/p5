@@ -1,4 +1,3 @@
-// Laser class (unchanged behavior)
 class Laser {
   constructor(spos, angle) {
     this.pos = createVector(spos.x, spos.y);

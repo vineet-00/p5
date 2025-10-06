@@ -1,4 +1,3 @@
-// sketch.js — main app glue
 let polys = [];
 let angle = 75;
 let delta = 10;
@@ -15,7 +14,7 @@ let bgColor = '#071226';
 function setup(){
   // create canvas inside our container so layout is controlled by CSS
   const container = document.getElementById('canvas-container');
-  // choose canvas size from container width (responsive): use 600 or container width
+  // choose canvas size from container width (responsive)
   const size = Math.min(container.clientWidth, 720);
   const cnv = createCanvas(size, size);
   cnv.parent('canvas-container');

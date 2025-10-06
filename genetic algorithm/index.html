@@ -1,18 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.10.0/p5.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.10.0/addons/p5.sound.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <meta charset="utf-8" />
-    <title>Genetic Algorithm - Rocket Evolution</title>
-  </head>
-  <body>
-    <main>
-    </main>
-    <script src="sketch.js"></script>
-    <script src="Rocket.js"></script>
-    <script src="Population.js"></script>
-    <script src="DNA.js"></script>
-  </body>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>VectorForge — Evolutionary Rocket Lab</title>
+
+  <!-- p5.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.10.0/p5.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.10.0/addons/p5.sound.min.js"></script>
+
+  <!-- Font + Styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <section class="canvas-panel">
+      <div id="canvas-holder" class="canvas-holder"></div>
+      <div class="controls">
+        <button id="btn-toggle">Pause</button>
+        <button id="btn-reset">Reset</button>
+      </div>
+    </section>
+
+    <aside class="info-panel">
+      <h1 class="title">VectorForge</h1>
+      <h2 class="subtitle">Evolutionary Rocket Lab</h2>
+
+      <p class="description">
+        A small laboratory where tiny rockets <em>learn</em> to fly. Each rocket carries a
+        sequence of force-vectors (its “DNA”). We launch a whole population, measure who flew
+        closest to the glowing target, keep the best, mix their DNA, add a little random mutation,
+        and try again. Over many tries, the population improves — a simple, beautiful kind of
+        learning by natural selection.
+      </p>
+
+      <p class="feynman">
+        In the words of Richard Feynman (if he liked rockets and code): <br>
+        “You don’t need to understand everything at once. Try things. See what happens. Keep the
+        ones that work and use bits of them to make better ones. That’s how these rockets learn.”
+      </p>
+
+      <div class="stats">
+        <div><strong>Generation:</strong> <span id="stat-gen">0</span></div>
+        <div><strong>Best dist:</strong> <span id="stat-best">—</span> px</div>
+        <div><strong>Population:</strong> <span id="stat-pop">25</span></div>
+        <div><strong>Lifespan:</strong> <span id="stat-life">200</span> frames</div>
+      </div>
+
+      <small class="note">Obstacle: light bar. Target: glowing dot. No scrolling necessary — layout fits the screen.</small>
+    </aside>
+  </main>
+
+  <!-- App scripts -->
+  <script src="DNA.js"></script>
+  <script src="Rocket.js"></script>
+  <script src="Population.js"></script>
+  <script src="sketch.js"></script>
+</body>
 </html>

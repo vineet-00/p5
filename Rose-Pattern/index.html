@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Mathematical Rose Pattern</title>
+
+    <!-- p5 -->
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.10/lib/p5.js"></script>
+
+    <!-- A comic / hand-drawn feel font -->
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section class="panel canvas-panel" id="canvas-panel">
+        <!-- container where p5 canvas will be injected -->
+        <div id="canvas-container"></div>
+      </section>
+
+      <aside class="panel side-panel">
+        <h1 class="title">Mathematical Rose</h1>
+
+        <div class="controls">
+          <label class="control-row">
+            <span class="label">n</span>
+            <input id="sliderN" type="range" min="1" max="10" step="1" value="5" />
+            <span id="valN" class="val">5</span>
+          </label>
+
+          <label class="control-row">
+            <span class="label">d</span>
+            <input id="sliderD" type="range" min="1" max="10" step="1" value="8" />
+            <span id="valD" class="val">8</span>
+          </label>
+        </div>
+
+        <div class="description">
+          <h2>Mathematical Rose Pattern</h2>
+          <p>
+            “Don't just memorize — try to see it.” Imagine the curve as a family of paper petals arranged
+            by a quiet conversation between two numbers, <em>n</em> and <em>d</em>. Change one; the petals
+            whisper and rearrange. The math is simple: the radius wiggles like a cosine and the angle
+            turns steadily — but the pattern that emerges is delightfully surprising. Tinker, observe,
+            and ask why.
+          </p>
+          <p>
+            This sketch draws a <em>rosette</em>: points traced by <strong>r = R · cos(k·θ)</strong>. 
+            By changing the integers <code>n</code> and <code>d</code> we change the fraction <code>k = n/d</code> and the shape flips between simple petals and intricate designs.
+            Play with the sliders to get a feel for how a tiny change in a ratio produces strikingly different geometry.
+          </p>
+        </div>
+      </aside>
+    </main>
+
+    <script src="sketch.js"></script>
+  </body>
+</html>
